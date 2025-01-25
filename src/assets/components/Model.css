@@ -1,0 +1,29 @@
+/* Modal overlay (grey background) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto; /* Allow the modal itself to scroll if it's taller than the viewport */
+}
+
+  /* Modal content box */
+ /* Modal content box */
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 90vw; /* Set a reasonable max-width */
+  max-height: 90vh; /* Restrict height to 80% of the viewport */
+  position: relative;
+  z-index: 1001;
+  border: 2px solid #FF8E48;
+  overflow-y: auto; /* Enables vertical scrolling when content overflows */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional for a shadow effect */
+}

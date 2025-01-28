@@ -2,7 +2,7 @@ import React from 'react'
 import SeatRoute from './SeatRoute'
 import SeatForm from './SeatForm'
 
-const SeatPayment = ({SelectedSeat}) => {
+const SeatPayment = ({SelectedSeat,paymentroute}) => {
     const seatPrice = 300; 
   const totalPrice = SelectedSeat.length * seatPrice;
   return (
@@ -38,7 +38,7 @@ const SeatPayment = ({SelectedSeat}) => {
         </div>
     </div>
     <SeatRoute from={'Chattragram Counter 2 - 12:30AM'} to={'Dhaka Main Counter - 5:45AM'}/>
-    <SeatForm/>
+    <SeatForm paymentroute={paymentroute}/>
     </div>
     </>
   )

@@ -1,25 +1,25 @@
 import React from 'react'
-import BookingRouteSelect from './BookingRouteSelect';
-import BookingB from './BookingB';
-import BookingButton from './BookingButton';
 import Routeshow from './Routeshow';
-
-  
-const SeatBooking = ({route,day,date}) => {
+import { useBookingContext } from './BookingContext';
+const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const SeatBooking = ({paymentroute}) => {  
+  const {from,to,date}=useBookingContext();
+  const day = String(date.getDate()).padStart(2,'0');
+  const month = String(date.getMonth() + 1).padStart(2,'0');
+  const year = date.getFullYear();
   return (
     <div className='w-full flex flex-col'>
     <div className='w-full flex flex-col border-[1px] border-solid mt-5 border-[#FF8E48] p-3'>
         <div className='w-full bg-[#FF8348] h-[50px] px-4 inter font-bold text-white flex justify-between items-center'>
         <div className='w-full flex justify-between'>
-            <p>ROUTE: {'Chittagong - Dhaka'}</p>
-            <p>{'Monday'}</p>
-            <p>{'18-8-2002'}</p>
+            <p>{`${from} - ${to}`}</p>
+            <p>{`${dayNames[date.getDay()]}`}</p>
+            <p>{`${day}-${month}-${year}`}</p>
         </div>
         </div>
-        <Routeshow/>
+        <Routeshow paymentroute={paymentroute}/>
     </div>
     <div className="flex justify-center w-full mt-[40px]">
-    <BookingB isactive={true} text={'Booking Seat'}  />
   </div>
   </div>
   )

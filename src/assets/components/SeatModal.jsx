@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import SeatPayment from './SeatPayment'
 import SeatSelect from './SeatSelect'
 import Modal from './Modal'
-const SeatModal = ({isopen,onclose}) => {
+const SeatModal = ({isopen,onclose,paymentroute}) => {
     const [selectedSeats, setSelectedSeats] = useState([]);
       
     const handleSeatSelect = (seatName, isSelected) => {
@@ -10,11 +10,15 @@ const SeatModal = ({isopen,onclose}) => {
         isSelected ? [...prev, seatName] : prev.filter((seat) => seat !== seatName)
       );
     };
+    useEffect(() => {
+      setSelectedSeats([]);
+    }, [isopen])
+    
   return (
     <Modal isopen={isopen} onClose={onclose} >
    <div className='flex items-start justify-evenly'>
     <SeatSelect onSeatSelect={handleSeatSelect}/>
-    <SeatPayment SelectedSeat={selectedSeats}/>
+    <SeatPayment paymentroute={paymentroute} SelectedSeat={selectedSeats}/>
    </div>
    </Modal>
   )

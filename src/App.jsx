@@ -1,26 +1,32 @@
-import { useState } from 'react'
-import './App.css'
-import Modal from './assets/components/Modal'
-import Seat from './assets/components/Seat'
-import SeatSelect from './assets/components/SeatSelect'
-import SeatPayment from './assets/components/SeatPayment'
-import SeatModal from './assets/components/SeatModal'
-import Navbar from './assets/components/Navbar'
-import Header from './assets/components/Header'
-import Booking from './assets/Pages/Booking'
-import PaymentSection from './assets/components/PaymentSection'
-import SeatBooking from './assets/components/SeatBooking'
-function App() {
-const [openmodal, setopenmodal] = useState(false)
-const closeModal = () => setopenmodal(false);
-  return (
-    <>
-    <div className='w-screen h-screen flex'>
-      <Navbar/>
-    <Booking/>
-    </div>
-    </>
-  )
-}
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router';
 
-export default App
+import Home from './assets/Pages/Home';
+import Login from './assets/Pages/Login';
+import Register from './assets/Pages/Register';
+import Overview from './assets/Pages/Overview';
+import MyBookings from './assets/Pages/MyBookings';
+import Booking from './assets/Pages/Booking';
+import Setting from './assets/Pages/Setting';
+import User from './assets/Pages/User'; // Import the new UserDashboard component
+import ForgotPassword from './assets/Pages/ForgotPassword';
+
+const App = () => {
+  return (
+      <Routes>
+        <Route path="/" element={<Home />} /> {/* Home component for root path */}
+        <Route path="/user" element={<User/>}> {/* UserDashboard as parent for /user routes */}
+          <Route path="overview" element={<Overview />} />
+          <Route path="booking" element={<Booking />} />
+          <Route path="mybooking" element={<MyBookings />} />
+          <Route path="settings" element={<Setting />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot" element={<ForgotPassword/>} />
+
+      </Routes>
+  );
+};
+
+export default App;

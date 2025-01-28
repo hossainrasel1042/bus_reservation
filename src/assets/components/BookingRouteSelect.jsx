@@ -1,10 +1,11 @@
 import React,{useState} from 'react'
 
-const BookingRouteSelect = ({route,where}) => {
+const BookingRouteSelect = ({route,where,handleRoute}) => {
     const [selectedOption, setSelectedOption] = useState("");
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
+    handleRoute(event.target.value,where);
   };
 
   return (

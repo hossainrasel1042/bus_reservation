@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import BookingB from './BookingB';
+import { useNavigate } from 'react-router';
 const PaymentSection = ({name}) => {
+  const navigate=useNavigate();
     const [expand, setexpand] = useState(false);
   return (
     <motion.div 
@@ -22,7 +24,7 @@ onClick={(e) => e.stopPropagation()} className='text-white inter bold'>Enter You
 onClick={(e) => e.stopPropagation()} type='number' className=' outline-none h-[40px] w-[200px] px-3 py-1 rounded-[30px]'></motion.input>
 </div>
 <div onClick={(e) => e.stopPropagation()} className={'absolute top-[150px] translate-x-[180%]'}>
-<BookingB isactive={false}  text={'Pay Now'}/>
+<BookingB isactive={false} onclick={()=>{navigate('/user/mybooking')}}  text={'Pay Now'}/>
 </div>
 </motion.div> 
  )

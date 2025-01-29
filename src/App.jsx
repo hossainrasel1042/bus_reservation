@@ -14,8 +14,8 @@ import ForgotPassword from './assets/Pages/ForgotPassword';
 const App = () => {
   return (
       <Routes>
-        <Route path="/" element={<Home />} /> {/* Home component for root path */}
-        <Route path="/user" element={<User/>}> {/* UserDashboard as parent for /user routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/user" element={<User/>}> 
           <Route path="overview" element={<Overview />} />
           <Route path="booking" element={<Booking />} />
           <Route path="mybooking" element={<MyBookings />} />

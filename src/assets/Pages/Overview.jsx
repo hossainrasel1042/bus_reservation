@@ -56,7 +56,7 @@ const Overview = () => {
         <div className="p-6">
           <h2 className="text-2xl mb-6">
             <span className="text-[#FF8E48] font-medium"> Good Evening!! </span>
-            <span className="text-gray-500 text-[15px]">, HamidUllah_22</span>
+            <span className="text-gray-500 text-[15px]">, Hossain Rasel</span>
           </h2>
 <Discount
 price={ticketPrice}
